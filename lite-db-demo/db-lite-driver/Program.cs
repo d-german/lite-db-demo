@@ -19,7 +19,7 @@ namespace db_lite_driver
         static void Main(string[] args)
         {
             // Open database (or create if doesn't exist)
-            using (var db = new LiteRepository(@"Customer.dblite"))
+            using (var db = new LiteRepository(@"../../../Customer.litedb"))
             {
                 var id = db.Insert(new Customer()
                 {
@@ -29,7 +29,7 @@ namespace db_lite_driver
                     IsActive = true
                 });
 
-                var customer = db.SingleById<Customer>(id);
+                var customer = db.SingleById<Customer>(99);
                 customer.Name = "Very Old";
                 customer.Age = 500;
 
